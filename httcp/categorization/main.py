@@ -133,3 +133,24 @@ def deep_tau_inv_wp(self: Categorizer, events: ak.Array, **kwargs) -> tuple[ak.A
         #from IPython import embed; embed()
         mask = mask | ak.fill_none(ak.firsts(channel_mask, axis=1),False)
     return events, mask
+
+@categorizer(uses={'event', 'hcand_*'})
+def decay_mode_lpi(self: Categorizer, events: ak.Array, **kwargs) -> tuple[ak.Array, ak.Array]:
+    mask = ak.zeros_like(events.event, dtype=np.bool_)
+    tau     = events.hcand_mutau.lep1
+    mask = mask & (tau.decayModePNet == 0) # Get only DM0 events
+    return events, mask
+
+@categorizer(uses={'event', 'hcand_*'})
+def decay_mode_lrho(self: Categorizer, events: ak.Array, **kwargs) -> tuple[ak.Array, ak.Array]:
+    mask = ak.zeros_like(events.event, dtype=np.bool_)
+    tau     = events.hcand_mutau.lep1
+    mask = mask & (tau.decayModePNet == 1) # Get only DM1 events
+    return events, mask
+
+@categorizer(uses={'event', 'hcand_*'})
+def decay_mode_la1(self: Categorizer, events: ak.Array, **kwargs) -> tuple[ak.Array, ak.Array]:
+    mask = ak.zeros_like(events.event, dtype=np.bool_)
+    tau     = events.hcand_mutau.lep1
+    mask = mask & (tau.decayModePNet == 2) # Get only DM2 events
+    return events, mask

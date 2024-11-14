@@ -119,6 +119,30 @@ def add_categories(config: od.Config) -> None:
         selection="b_veto_inv",
         label="inv b veto",
     )
+
+    mutau_dm0 = add_category(
+        config,
+        name="decay_mode_lpi",
+        id=90,
+        selection="decay_mode_lpi",
+        label="tau PNet DM = 0",
+    )
+    mutau_dm1 = add_category(
+        config,
+        name="decay_mode_lrho",
+        id=100,
+        selection="decay_mode_lrho",
+        label="tau PNet DM = 1",
+    )
+
+    mutau_dm2 = add_category(
+        config,
+        name="decay_mode_la1",
+        id=110,
+        selection="decay_mode_la1",
+        label="tau PNet DM = 2",
+    )
+
     #############################################
     ### Categories for the Fake Factor method ###
     #############################################
@@ -138,6 +162,46 @@ def add_categories(config: od.Config) -> None:
                    b_veto.selection],
         label=r"$\mu\tau$ signal region",
     )
+
+    mutau_signal_reg_mupi = add_category(
+        config,
+        name="mutau_signal_reg",
+        id=2000 + mutau.id,
+        selection=[mutau.selection,
+                   os_charge.selection,
+                   mT_cut.selection,
+                   deep_tau_wp.selection,
+                   b_veto.selection,
+                   mutau_dm0.selection],
+        label=r"$\mu\tau$ signal region tau DM0",
+    )
+
+    mutau_signal_reg_murho = add_category(
+        config,
+        name="mutau_signal_reg",
+        id=2000 + mutau.id,
+        selection=[mutau.selection,
+                   os_charge.selection,
+                   mT_cut.selection,
+                   deep_tau_wp.selection,
+                   b_veto.selection,
+                   mutau_dm1.selection],
+        label=r"$\mu\tau$ signal region tau DM1",
+    )
+
+    mutau_signal_reg_mua1 = add_category(
+        config,
+        name="mutau_signal_reg",
+        id=2000 + mutau.id,
+        selection=[mutau.selection,
+                   os_charge.selection,
+                   mT_cut.selection,
+                   deep_tau_wp.selection,
+                   b_veto.selection,
+                   mutau_dm2.selection],
+        label=r"$\mu\tau$ signal region tau DM2",
+    )
+
     
     mutau_inv_mt = add_category(
         config,
