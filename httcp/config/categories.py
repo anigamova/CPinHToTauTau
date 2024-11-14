@@ -165,8 +165,8 @@ def add_categories(config: od.Config) -> None:
 
     mutau_signal_reg_mupi = add_category(
         config,
-        name="mutau_signal_reg",
-        id=2000 + mutau.id,
+        name="mutau_signal_reg_mupi",
+        id=2100 + mutau.id,
         selection=[mutau.selection,
                    os_charge.selection,
                    mT_cut.selection,
@@ -178,8 +178,8 @@ def add_categories(config: od.Config) -> None:
 
     mutau_signal_reg_murho = add_category(
         config,
-        name="mutau_signal_reg",
-        id=2000 + mutau.id,
+        name="mutau_signal_reg_murho",
+        id=2200 + mutau.id,
         selection=[mutau.selection,
                    os_charge.selection,
                    mT_cut.selection,
@@ -191,8 +191,8 @@ def add_categories(config: od.Config) -> None:
 
     mutau_signal_reg_mua1 = add_category(
         config,
-        name="mutau_signal_reg",
-        id=2000 + mutau.id,
+        name="mutau_signal_reg_mua1",
+        id=2300 + mutau.id,
         selection=[mutau.selection,
                    os_charge.selection,
                    mT_cut.selection,
@@ -203,7 +203,7 @@ def add_categories(config: od.Config) -> None:
     )
 
     
-    mutau_inv_mt = add_category(
+    mutau_inv_deeptau = add_category(
         config,
         name="mutau_inv_deeptau",
         id=1000 + mutau.id,
