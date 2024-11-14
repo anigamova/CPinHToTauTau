@@ -419,6 +419,7 @@ def phi_cp_variables(cfg: od.Config) -> None:
             binning=(2, 0, 2*np.pi),
             x_title=rf"$\varphi_{{CP}} [{title_str}], \alpha \geq \pi/4$ (rad)",
         )
+
         cfg.add_variable(
             name=f"alpha_{the_ch}",
             expression=f"alpha_{the_ch}",
@@ -426,6 +427,13 @@ def phi_cp_variables(cfg: od.Config) -> None:
             binning=(6, 0, np.pi/2),
             x_title=rf"$ \alpha [{title_str}] $(rad)",
         )
+    cfg.add_variable(
+        name=f"phi_cp",
+        expression=f"phi_cp"
+        null_value=EMPTY_FLOAT,
+        binning=(2, 0, 2*np.pi),
+        x_title=rf"$\varphi_{{CP}}",
+    )
 
 def add_dilepton_features(cfg: od.Config) -> None:
     channels = cfg.channels.names()
