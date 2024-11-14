@@ -431,7 +431,7 @@ def phi_cp_variables(cfg: od.Config) -> None:
         name=f"phi_cp",
         expression=f"phi_cp"
         null_value=EMPTY_FLOAT,
-        binning=(2, 0, 2*np.pi),
+        binning=(n_bins_phi_cp, 0, 2*np.pi),
         x_title=rf"$\varphi_{{CP}}",
     )
 
